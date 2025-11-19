@@ -43,12 +43,12 @@ eval_results() {
     DIR=$(dirname $1)
 
     if [[ $1 == *"best_model" ]]; then
-        python evaluation.py \
+        uv run evaluation.py \
             --model_name_or_path   $MODEL_PATH \
             --mode test --mask_embedding_sentence \
             --mask_embedding_sentence_template $TEMPLATE --lora_weight  $1 --load_kbit 16 ${args[@]}
     else
-        python evaluation.py \
+        uv run evaluation.py \
             --model_name_or_path   $MODEL_PATH \
             --mode dev --mask_embedding_sentence \
             --mask_embedding_sentence_template $TEMPLATE --lora_weight  $1 --load_kbit 4 --checkpoint_path $DIR ${args[@]}

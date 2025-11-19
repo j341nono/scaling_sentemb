@@ -276,18 +276,13 @@ with torch.no_grad():
 Install Dependencies
 
 ``` sh
-pip install -r requirements.txt
+uv sync
 ```
 
 Download Data
 
 ``` sh
-cd SentEval/data/downstream/
-bash download_dataset.sh
-cd -
-cd ./data
-bash download_nli.sh
-cd -
+./scripts/setup.sh
 ```
 
 ## In-context learning
